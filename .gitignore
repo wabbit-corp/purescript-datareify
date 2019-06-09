@@ -1,5 +1,8 @@
 # Dependencies
 .psci_modules
+.psc-ide-port
+.spago
+.pulp-cache
 bower_components
 node_modules
 
