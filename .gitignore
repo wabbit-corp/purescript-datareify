@@ -1,3 +1,9 @@
+.DS_Store
+Thumbs.db
+
+/.is-dev-mode
+/.is-ij-mode
+
 # Dependencies
 .psci_modules
 .psc-ide-port
