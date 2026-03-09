@@ -18,11 +18,11 @@ import Matryoshka.Class.Corecursive (class Corecursive, embed)
 
 newtype Graph f = Graph (HM.HashMap Int (f Int))
 
-type State t f = {
-  size  :: Int,
-  names :: HM.HashMap (StableName t) Int,
-  graph :: HM.HashMap Int (f Int)
-}
+type State t f =
+  { size :: Int
+  , names :: HM.HashMap (StableName t) Int
+  , graph :: HM.HashMap Int (f Int)
+  }
 
 emptyState :: forall t f. State t f
 emptyState = { size: 0, names: HM.empty, graph: HM.empty }
@@ -37,11 +37,11 @@ toGraph' node = do
 
   case HM.lookup name oldState.names of
     Just key -> pure key
-    Nothing  -> do
-      _ <- modify $ \s -> s {
-        size = oldState.size + 1,
-        names = HM.insert name oldState.size oldState.names
-      }
+    Nothing -> do
+      _ <- modify $ \s -> s
+        { size = oldState.size + 1
+        , names = HM.insert name oldState.size oldState.names
+        }
 
       entry <- traverse toGraph' $ project node
       _ <- modify $ \s -> s { graph = HM.insert oldState.size entry s.graph }
