@@ -1,6 +1,23 @@
 .DS_Store
 Thumbs.db
 
+# Temporary scratch space
+/tmp/
+/.tmp/
+/tmp-*/
+/tmp_*/
+/tmp.*/
+/.tmp-*/
+/.tmp_*/
+/.tmp.*/
+tmp-*
+tmp_*
+tmp.*
+.tmp-*
+.tmp_*
+.tmp.*
+*.bak
+
 # Dependencies
 .psci_modules
 .psc-ide-port
